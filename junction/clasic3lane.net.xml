@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Thu May 13 14:05:23 2021 by Eclipse SUMO netedit Version 1.8.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="/Users/johnsmacbook/MyDocs/Facultate/Master/Disertatie/myproj/junction/clasic3lane.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="/Users/johnsmacbook/MyDocs/Facultate/Master/Disertatie/myproj/junction/clasic3lane1.net.xml"/>
+    </output>
+
+    <processing>
+        <geometry.min-radius.fix.railways value="false"/>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="5"/>
+        <junctions.limit-turn-speed value="5.5"/>
+        <rectangular-lane-cut value="false"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="false"/>
+    </pedestrian>
+
+    <report>
+        <aggregate-warnings value="5"/>
+    </report>
+
+</configuration>
+-->
+
+<net version="1.6" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="-200.00,-200.00,200.00,200.00" origBoundary="-10000000000.00,-10000000000.00,10000000000.00,10000000000.00" projParameter="!"/>
+
+    <edge id=":cp_0" function="internal">
+        <lane id=":cp_0_0" index="0" speed="6.51" length="9.03" shape="-8.00,13.60 -8.35,11.15 -9.40,9.40 -11.15,8.35 -13.60,8.00"/>
+    </edge>
+    <edge id=":cp_1" function="internal">
+        <lane id=":cp_1_0" index="0" speed="13.89" length="27.20" shape="-8.00,13.60 -8.00,-13.60"/>
+        <lane id=":cp_1_1" index="1" speed="13.89" length="27.20" shape="-4.80,13.60 -4.80,-13.60"/>
+        <lane id=":cp_1_2" index="2" speed="13.89" length="27.20" shape="-1.60,13.60 -1.60,-13.60"/>
+    </edge>
+    <edge id=":cp_4" function="internal">
+        <lane id=":cp_4_0" index="0" speed="10.36" length="7.98" shape="-1.60,13.60 -0.65,6.95 -0.00,5.87"/>
+    </edge>
+    <edge id=":cp_20" function="internal">
+        <lane id=":cp_20_0" index="0" speed="10.36" length="16.53" shape="-0.00,5.87 2.20,2.20 6.95,-0.65 13.60,-1.60"/>
+    </edge>
+    <edge id=":cp_5" function="internal">
+        <lane id=":cp_5_0" index="0" speed="6.51" length="9.03" shape="13.60,8.00 11.15,8.35 9.40,9.40 8.35,11.15 8.00,13.60"/>
+    </edge>
+    <edge id=":cp_6" function="internal">
+        <lane id=":cp_6_0" index="0" speed="13.89" length="27.20" shape="13.60,8.00 -13.60,8.00"/>
+        <lane id=":cp_6_1" index="1" speed="13.89" length="27.20" shape="13.60,4.80 -13.60,4.80"/>
+        <lane id=":cp_6_2" index="2" speed="13.89" length="27.20" shape="13.60,1.60 -13.60,1.60"/>
+    </edge>
+    <edge id=":cp_9" function="internal">
+        <lane id=":cp_9_0" index="0" speed="10.36" length="7.98" shape="13.60,1.60 6.95,0.65 5.87,0.00"/>
+    </edge>
+    <edge id=":cp_21" function="internal">
+        <lane id=":cp_21_0" index="0" speed="10.36" length="16.53" shape="5.87,0.00 2.20,-2.20 -0.65,-6.95 -1.60,-13.60"/>
+    </edge>
+    <edge id=":cp_10" function="internal">
+        <lane id=":cp_10_0" index="0" speed="6.51" length="9.03" shape="8.00,-13.60 8.35,-11.15 9.40,-9.40 11.15,-8.35 13.60,-8.00"/>
+    </edge>
+    <edge id=":cp_11" function="internal">
+        <lane id=":cp_11_0" index="0" speed="13.89" length="27.20" shape="8.00,-13.60 8.00,13.60"/>
+        <lane id=":cp_11_1" index="1" speed="13.89" length="27.20" shape="4.80,-13.60 4.80,13.60"/>
+        <lane id=":cp_11_2" index="2" speed="13.89" length="27.20" shape="1.60,-13.60 1.60,13.60"/>
+    </edge>
+    <edge id=":cp_14" function="internal">
+        <lane id=":cp_14_0" index="0" speed="10.36" length="7.98" shape="1.60,-13.60 0.65,-6.95 0.00,-5.87"/>
+    </edge>
+    <edge id=":cp_22" function="internal">
+        <lane id=":cp_22_0" index="0" speed="10.36" length="16.53" shape="0.00,-5.87 -2.20,-2.20 -6.95,0.65 -13.60,1.60"/>
+    </edge>
+    <edge id=":cp_15" function="internal">
+        <lane id=":cp_15_0" index="0" speed="6.51" length="9.03" shape="-13.60,-8.00 -11.15,-8.35 -9.40,-9.40 -8.35,-11.15 -8.00,-13.60"/>
+    </edge>
+    <edge id=":cp_16" function="internal">
+        <lane id=":cp_16_0" index="0" speed="13.89" length="27.20" shape="-13.60,-8.00 13.60,-8.00"/>
+        <lane id=":cp_16_1" index="1" speed="13.89" length="27.20" shape="-13.60,-4.80 13.60,-4.80"/>
+        <lane id=":cp_16_2" index="2" speed="13.89" length="27.20" shape="-13.60,-1.60 13.60,-1.60"/>
+    </edge>
+    <edge id=":cp_19" function="internal">
+        <lane id=":cp_19_0" index="0" speed="10.36" length="7.98" shape="-13.60,-1.60 -6.95,-0.65 -5.87,-0.00"/>
+    </edge>
+    <edge id=":cp_23" function="internal">
+        <lane id=":cp_23_0" index="0" speed="10.36" length="16.53" shape="-5.87,-0.00 -2.20,2.20 0.65,6.95 1.60,13.60"/>
+    </edge>
+
+    <edge id="cptoep" from="cp" to="ep" priority="-1">
+        <lane id="cptoep_0" index="0" speed="13.89" length="186.40" shape="13.60,-8.00 200.00,-8.00"/>
+        <lane id="cptoep_1" index="1" speed="13.89" length="186.40" shape="13.60,-4.80 200.00,-4.80"/>
+        <lane id="cptoep_2" index="2" speed="13.89" length="186.40" shape="13.60,-1.60 200.00,-1.60"/>
+    </edge>
+    <edge id="cptonp" from="cp" to="np" priority="-1">
+        <lane id="cptonp_0" index="0" speed="13.89" length="186.40" shape="8.00,13.60 8.00,200.00"/>
+        <lane id="cptonp_1" index="1" speed="13.89" length="186.40" shape="4.80,13.60 4.80,200.00"/>
+        <lane id="cptonp_2" index="2" speed="13.89" length="186.40" shape="1.60,13.60 1.60,200.00"/>
+    </edge>
+    <edge id="cptosp" from="cp" to="sp" priority="-1">
+        <lane id="cptosp_0" index="0" speed="13.89" length="186.40" shape="-8.00,-13.60 -8.00,-200.00"/>
+        <lane id="cptosp_1" index="1" speed="13.89" length="186.40" shape="-4.80,-13.60 -4.80,-200.00"/>
+        <lane id="cptosp_2" index="2" speed="13.89" length="186.40" shape="-1.60,-13.60 -1.60,-200.00"/>
+    </edge>
+    <edge id="cptowp" from="cp" to="wp" priority="-1">
+        <lane id="cptowp_0" index="0" speed="13.89" length="186.40" shape="-13.60,8.00 -200.00,8.00"/>
+        <lane id="cptowp_1" index="1" speed="13.89" length="186.40" shape="-13.60,4.80 -200.00,4.80"/>
+        <lane id="cptowp_2" index="2" speed="13.89" length="186.40" shape="-13.60,1.60 -200.00,1.60"/>
+    </edge>
+    <edge id="eptocp" from="ep" to="cp" priority="-1">
+        <lane id="eptocp_0" index="0" speed="13.89" length="186.40" shape="200.00,8.00 13.60,8.00"/>
+        <lane id="eptocp_1" index="1" speed="13.89" length="186.40" shape="200.00,4.80 13.60,4.80"/>
+        <lane id="eptocp_2" index="2" speed="13.89" length="186.40" shape="200.00,1.60 13.60,1.60"/>
+    </edge>
+    <edge id="nptocp" from="np" to="cp" priority="-1">
+        <lane id="nptocp_0" index="0" speed="13.89" length="186.40" shape="-8.00,200.00 -8.00,13.60"/>
+        <lane id="nptocp_1" index="1" speed="13.89" length="186.40" shape="-4.80,200.00 -4.80,13.60"/>
+        <lane id="nptocp_2" index="2" speed="13.89" length="186.40" shape="-1.60,200.00 -1.60,13.60"/>
+    </edge>
+    <edge id="sptocp" from="sp" to="cp" priority="-1">
+        <lane id="sptocp_0" index="0" speed="13.89" length="186.40" shape="8.00,-200.00 8.00,-13.60"/>
+        <lane id="sptocp_1" index="1" speed="13.89" length="186.40" shape="4.80,-200.00 4.80,-13.60"/>
+        <lane id="sptocp_2" index="2" speed="13.89" length="186.40" shape="1.60,-200.00 1.60,-13.60"/>
+    </edge>
+    <edge id="wptocp" from="wp" to="cp" priority="-1">
+        <lane id="wptocp_0" index="0" speed="13.89" length="186.40" shape="-200.00,-8.00 -13.60,-8.00"/>
+        <lane id="wptocp_1" index="1" speed="13.89" length="186.40" shape="-200.00,-4.80 -13.60,-4.80"/>
+        <lane id="wptocp_2" index="2" speed="13.89" length="186.40" shape="-200.00,-1.60 -13.60,-1.60"/>
+    </edge>
+
+    <tlLogic id="cp" type="static" programID="0" offset="0">
+        <phase duration="42" state="GGGGgrrrrrGGGGgrrrrr"/>
+        <phase duration="3"  state="yyyyyrrrrryyyyyrrrrr"/>
+        <phase duration="42" state="rrrrrGGGGgrrrrrGGGGg"/>
+        <phase duration="3"  state="rrrrryyyyyrrrrryyyyy"/>
+    </tlLogic>
+
+    <junction id="cp" type="traffic_light" x="0.00" y="0.00" incLanes="nptocp_0 nptocp_1 nptocp_2 eptocp_0 eptocp_1 eptocp_2 sptocp_0 sptocp_1 sptocp_2 wptocp_0 wptocp_1 wptocp_2" intLanes=":cp_0_0 :cp_1_0 :cp_1_1 :cp_1_2 :cp_20_0 :cp_5_0 :cp_6_0 :cp_6_1 :cp_6_2 :cp_21_0 :cp_10_0 :cp_11_0 :cp_11_1 :cp_11_2 :cp_22_0 :cp_15_0 :cp_16_0 :cp_16_1 :cp_16_2 :cp_23_0" shape="-9.60,13.60 9.60,13.60 10.04,11.38 10.60,10.60 11.38,10.04 12.38,9.71 13.60,9.60 13.60,-9.60 11.38,-10.04 10.60,-10.60 10.04,-11.38 9.71,-12.38 9.60,-13.60 -9.60,-13.60 -10.04,-11.38 -10.60,-10.60 -11.38,-10.04 -12.38,-9.71 -13.60,-9.60 -13.60,9.60 -11.38,10.04 -10.60,10.60 -10.04,11.38 -9.71,12.38">
+        <request index="0"  response="00000000000000000000" foes="00000000000111000000" cont="0"/>
+        <request index="1"  response="10000000001000000000" foes="11111100001111000000" cont="0"/>
+        <request index="2"  response="10000000001000000000" foes="11111100001111000000" cont="0"/>
+        <request index="3"  response="10000000001000000000" foes="11111100001111000000" cont="0"/>
+        <request index="4"  response="10000011101000000000" foes="11110011101111000000" cont="1"/>
+        <request index="5"  response="00000011100000000000" foes="00000011100000000000" cont="0"/>
+        <request index="6"  response="00000111100000011111" foes="10000111100000011111" cont="0"/>
+        <request index="7"  response="00000111100000011111" foes="10000111100000011111" cont="0"/>
+        <request index="8"  response="00000111100000011111" foes="10000111100000011111" cont="0"/>
+        <request index="9"  response="01110111100000011110" foes="01110111100000011110" cont="1"/>
+        <request index="10" response="00000000000000000000" foes="01110000000000000000" cont="0"/>
+        <request index="11" response="10000000001000000000" foes="11110000001111110000" cont="0"/>
+        <request index="12" response="10000000001000000000" foes="11110000001111110000" cont="0"/>
+        <request index="13" response="10000000001000000000" foes="11110000001111110000" cont="0"/>
+        <request index="14" response="10000000001000001110" foes="11110000001111001110" cont="1"/>
+        <request index="15" response="00000000000000001110" foes="00000000000000001110" cont="0"/>
+        <request index="16" response="00000111110000011110" foes="00000111111000011110" cont="0"/>
+        <request index="17" response="00000111110000011110" foes="00000111111000011110" cont="0"/>
+        <request index="18" response="00000111110000011110" foes="00000111111000011110" cont="0"/>
+        <request index="19" response="00000111100111011110" foes="00000111100111011110" cont="1"/>
+    </junction>
+    <junction id="ep" type="dead_end" x="200.00" y="0.00" incLanes="cptoep_0 cptoep_1 cptoep_2" intLanes="" shape="200.00,0.00 200.00,-9.60 200.00,0.00"/>
+    <junction id="np" type="dead_end" x="0.00" y="200.00" incLanes="cptonp_0 cptonp_1 cptonp_2" intLanes="" shape="0.00,200.00 9.60,200.00 0.00,200.00"/>
+    <junction id="sp" type="dead_end" x="0.00" y="-200.00" incLanes="cptosp_0 cptosp_1 cptosp_2" intLanes="" shape="0.00,-200.00 -9.60,-200.00 0.00,-200.00"/>
+    <junction id="wp" type="dead_end" x="-200.00" y="0.00" incLanes="cptowp_0 cptowp_1 cptowp_2" intLanes="" shape="-200.00,0.00 -200.00,9.60 -200.00,0.00"/>
+
+    <junction id=":cp_20_0" type="internal" x="-0.00" y="5.87" incLanes=":cp_4_0 sptocp_0 sptocp_1 sptocp_2" intLanes=":cp_6_0 :cp_6_1 :cp_6_2 :cp_9_0 :cp_10_0 :cp_11_0 :cp_11_1 :cp_11_2 :cp_16_0 :cp_16_1 :cp_16_2 :cp_19_0"/>
+    <junction id=":cp_21_0" type="internal" x="5.87" y="0.00" incLanes=":cp_9_0 wptocp_0 wptocp_1 wptocp_2" intLanes=":cp_1_0 :cp_1_1 :cp_1_2 :cp_4_0 :cp_11_0 :cp_11_1 :cp_11_2 :cp_14_0 :cp_15_0 :cp_16_0 :cp_16_1 :cp_16_2"/>
+    <junction id=":cp_22_0" type="internal" x="0.00" y="-5.87" incLanes=":cp_14_0 nptocp_0 nptocp_1 nptocp_2" intLanes=":cp_0_0 :cp_1_0 :cp_1_1 :cp_1_2 :cp_6_0 :cp_6_1 :cp_6_2 :cp_9_0 :cp_16_0 :cp_16_1 :cp_16_2 :cp_19_0"/>
+    <junction id=":cp_23_0" type="internal" x="-5.87" y="-0.00" incLanes=":cp_19_0 eptocp_0 eptocp_1 eptocp_2" intLanes=":cp_1_0 :cp_1_1 :cp_1_2 :cp_4_0 :cp_5_0 :cp_6_0 :cp_6_1 :cp_6_2 :cp_11_0 :cp_11_1 :cp_11_2 :cp_14_0"/>
+
+    <connection from="eptocp" to="cptonp" fromLane="0" toLane="0" via=":cp_5_0" tl="cp" linkIndex="5" dir="r" state="o"/>
+    <connection from="eptocp" to="cptowp" fromLane="0" toLane="0" via=":cp_6_0" tl="cp" linkIndex="6" dir="s" state="o"/>
+    <connection from="eptocp" to="cptowp" fromLane="1" toLane="1" via=":cp_6_1" tl="cp" linkIndex="7" dir="s" state="o"/>
+    <connection from="eptocp" to="cptowp" fromLane="2" toLane="2" via=":cp_6_2" tl="cp" linkIndex="8" dir="s" state="o"/>
+    <connection from="eptocp" to="cptosp" fromLane="2" toLane="2" via=":cp_9_0" tl="cp" linkIndex="9" dir="l" state="o"/>
+    <connection from="nptocp" to="cptowp" fromLane="0" toLane="0" via=":cp_0_0" tl="cp" linkIndex="0" dir="r" state="O"/>
+    <connection from="nptocp" to="cptosp" fromLane="0" toLane="0" via=":cp_1_0" tl="cp" linkIndex="1" dir="s" state="O"/>
+    <connection from="nptocp" to="cptosp" fromLane="1" toLane="1" via=":cp_1_1" tl="cp" linkIndex="2" dir="s" state="O"/>
+    <connection from="nptocp" to="cptosp" fromLane="2" toLane="2" via=":cp_1_2" tl="cp" linkIndex="3" dir="s" state="O"/>
+    <connection from="nptocp" to="cptoep" fromLane="2" toLane="2" via=":cp_4_0" tl="cp" linkIndex="4" dir="l" state="o"/>
+    <connection from="sptocp" to="cptoep" fromLane="0" toLane="0" via=":cp_10_0" tl="cp" linkIndex="10" dir="r" state="O"/>
+    <connection from="sptocp" to="cptonp" fromLane="0" toLane="0" via=":cp_11_0" tl="cp" linkIndex="11" dir="s" state="O"/>
+    <connection from="sptocp" to="cptonp" fromLane="1" toLane="1" via=":cp_11_1" tl="cp" linkIndex="12" dir="s" state="O"/>
+    <connection from="sptocp" to="cptonp" fromLane="2" toLane="2" via=":cp_11_2" tl="cp" linkIndex="13" dir="s" state="O"/>
+    <connection from="sptocp" to="cptowp" fromLane="2" toLane="2" via=":cp_14_0" tl="cp" linkIndex="14" dir="l" state="o"/>
+    <connection from="wptocp" to="cptosp" fromLane="0" toLane="0" via=":cp_15_0" tl="cp" linkIndex="15" dir="r" state="o"/>
+    <connection from="wptocp" to="cptoep" fromLane="0" toLane="0" via=":cp_16_0" tl="cp" linkIndex="16" dir="s" state="o"/>
+    <connection from="wptocp" to="cptoep" fromLane="1" toLane="1" via=":cp_16_1" tl="cp" linkIndex="17" dir="s" state="o"/>
+    <connection from="wptocp" to="cptoep" fromLane="2" toLane="2" via=":cp_16_2" tl="cp" linkIndex="18" dir="s" state="o"/>
+    <connection from="wptocp" to="cptonp" fromLane="2" toLane="2" via=":cp_19_0" tl="cp" linkIndex="19" dir="l" state="o"/>
+
+    <connection from=":cp_0" to="cptowp" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":cp_1" to="cptosp" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":cp_1" to="cptosp" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":cp_1" to="cptosp" fromLane="2" toLane="2" dir="s" state="M"/>
+    <connection from=":cp_4" to="cptoep" fromLane="0" toLane="2" via=":cp_20_0" dir="l" state="m"/>
+    <connection from=":cp_20" to="cptoep" fromLane="0" toLane="2" dir="l" state="M"/>
+    <connection from=":cp_5" to="cptonp" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":cp_6" to="cptowp" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":cp_6" to="cptowp" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":cp_6" to="cptowp" fromLane="2" toLane="2" dir="s" state="M"/>
+    <connection from=":cp_9" to="cptosp" fromLane="0" toLane="2" via=":cp_21_0" dir="l" state="m"/>
+    <connection from=":cp_21" to="cptosp" fromLane="0" toLane="2" dir="l" state="M"/>
+    <connection from=":cp_10" to="cptoep" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":cp_11" to="cptonp" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":cp_11" to="cptonp" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":cp_11" to="cptonp" fromLane="2" toLane="2" dir="s" state="M"/>
+    <connection from=":cp_14" to="cptowp" fromLane="0" toLane="2" via=":cp_22_0" dir="l" state="m"/>
+    <connection from=":cp_22" to="cptowp" fromLane="0" toLane="2" dir="l" state="M"/>
+    <connection from=":cp_15" to="cptosp" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":cp_16" to="cptoep" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":cp_16" to="cptoep" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":cp_16" to="cptoep" fromLane="2" toLane="2" dir="s" state="M"/>
+    <connection from=":cp_19" to="cptonp" fromLane="0" toLane="2" via=":cp_23_0" dir="l" state="m"/>
+    <connection from=":cp_23" to="cptonp" fromLane="0" toLane="2" dir="l" state="M"/>
+
+</net>

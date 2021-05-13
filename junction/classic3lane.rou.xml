@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Wed Jan  6 12:42:55 2021 by Eclipse SUMO netedit Version 1.8.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <output>
+        <output-file value="/Users/johnsmacbook/MyDocs/Facultate/Master/Disertatie/clasic2lane.net.xml"/>
+    </output>
+
+    <processing>
+        <offset.disable-normalization value="true"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+    </junctions>
+
+    <netedit>
+        <route-files value="/Users/johnsmacbook/MyDocs/Facultate/Master/Disertatie/classic2lanes.rou.xml"/>
+    </netedit>
+
+    <report>
+        <aggregate-warnings value="5"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <flow id="flow_0" begin="0.00" from="sptocp" to="cptowp" end="3600.00" number="100"/>
+    <flow id="flow_1" begin="0.00" from="sptocp" to="cptonp" end="3600.00" number="300"/>
+    <flow id="flow_2" begin="0.00" from="sptocp" to="cptoep" end="3600.00" number="300"/>
+    <flow id="flow_3" begin="0.00" from="eptocp" to="cptosp" end="3600.00" number="100"/>
+    <flow id="flow_4" begin="0.00" from="eptocp" to="cptowp" end="3600.00" number="300"/>
+    <flow id="flow_5" begin="0.00" from="eptocp" to="cptonp" end="3600.00" number="300"/>
+    <flow id="flow_6" begin="0.00" from="nptocp" to="cptowp" end="3600.00" number="300"/>
+    <flow id="flow_7" begin="0.00" from="nptocp" to="cptosp" end="3600.00" number="300"/>
+    <flow id="flow_8" begin="0.00" from="nptocp" to="cptoep" end="3600.00" number="100"/>
+    <flow id="flow_9" begin="0.00" from="wptocp" to="cptonp" end="3600.00" number="200"/>
+    <flow id="flow_10" begin="0.00" from="wptocp" to="cptoep" end="3600.00" number="600"/>
+    <flow id="flow_11" begin="0.00" from="wptocp" to="cptosp" end="3600.00" number="500"/>
+</routes>
