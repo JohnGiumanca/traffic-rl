@@ -16,8 +16,8 @@ import numpy as np
 
 class SumoEnv(Env):
 
-    def __init__(self, sumocfg_path=None, net_path=None, rou_path=None, max_steps=1000, 
-                    sumo_gui=False, yellow_time_limit=3, occupancy_threshold=0.5, 
+    def __init__(self, sumocfg_path=None, net_path=None, rou_path=None, rou_gen=None, 
+                    max_steps=1000, sumo_gui=False, yellow_time_limit=3, occupancy_threshold=0.5, 
                     min_green=1, multi_junction_net=False, car_size=5, car_gap=2.5):
         super(SumoEnv, self).__init__()
         
@@ -32,6 +32,7 @@ class SumoEnv(Env):
         self._min_green = min_green
         self._car_size = car_size
         self._car_gap = car_gap
+        self._rou_gen = rou_gen
 
         self.traci_init = None
         self.trafficlight_ids = []
@@ -53,6 +54,9 @@ class SumoEnv(Env):
         self.last_step = 0
         self.running = False
 
+        self.history_reward = []
+        self.history_max_occupancy = []
+
         self.reset(init_use=True)
         self.close()
 
@@ -72,7 +76,6 @@ class SumoEnv(Env):
 
             self._action_space[tl_id] = Discrete(self.trafficlight_n_green_phases[tl_id])
 
-
     @property
     def observation_space(self):
         return self._observation_space[self.trafficlight_ids[0]]
@@ -81,12 +84,15 @@ class SumoEnv(Env):
         return self._action_space[self.trafficlight_ids[0]]
     
     
+    
 
     def reset(self, init_use=False):
         
         self.last_step = 0
         self.next_phase = None
         self.last_max_occupancy = 0
+        self.history_reward = []
+        self.history_max_occupancy = []
 
         if self.running:
             traci.close()
@@ -100,8 +106,11 @@ class SumoEnv(Env):
 
         if self._sumocfg_path:
             sumo_config = [sumo_binary, "-c", self._sumocfg_path]
+        elif self._rou_gen:
+            self._rou_gen.generate_routefile()
+            sumo_config = [sumo_binary, '-n', self._net_path, '-r', self._rou_path]
         else:
-            sumo_config = [sumo_binary, '-n', self._net_path, '-r', self._rou_path,]
+            sumo_config = [sumo_binary, '-n', self._net_path, '-r', self._rou_path]
         
         traci.start(sumo_config)
         self.running = True
@@ -140,7 +149,6 @@ class SumoEnv(Env):
                 self.do_action(action)
         
             obs, reward, done, info = self.sumo_step()
-            self.last_phase = obs[tl_id][0]
 
             return obs[tl_id], reward[tl_id], done, info
 
@@ -156,6 +164,9 @@ class SumoEnv(Env):
             reward = self.update_reward()
             done = self.check_done()
             
+            tl_id = self.trafficlight_ids[0]
+            self.history_reward.append(reward[tl_id])
+
             if done:
                 return obs, reward, done, info
         
@@ -208,11 +219,13 @@ class SumoEnv(Env):
     def do_action(self, action): # for single agent use!
         tl_id =self.trafficlight_ids[0]
         self.next_phase = action * 2
-
         if self.next_phase !=  self.last_phase:
-            traci.trafficlight.setPhase(tl_id,  self.last_phase + 1) 
-            self.sumo_step(n_steps=self._yellow_time_limit)
+            traci.trafficlight.setPhase(tl_id,  self.last_phase + 1) #yellow
+            self.sumo_step(n_steps=self._yellow_time_limit) #wait for yellow to end
             traci.trafficlight.setPhase(tl_id,  self.next_phase) 
+            self.last_phase = self.next_phase
+        else:
+            traci.trafficlight.setPhase(tl_id,  self.next_phase)
             # self.sumo_step(n_steps=self._min_green)
 
     # def change_tl_phase(action, tl_id):
@@ -236,7 +249,7 @@ class SumoEnv(Env):
 
     def update_reward(self):
         for tl_id in self.trafficlight_ids:  
-            reward = self.calculate_reward_3(tl_id)
+            reward = self.calculate_reward_4(tl_id)
             self.last_reward[tl_id] = reward
 
         return self.last_reward
@@ -250,11 +263,12 @@ class SumoEnv(Env):
 
     def update_max_occupancy(self):
         self.last_max_occupancy = self.get_max_occupancy()
+        self.history_max_occupancy.append(self.last_max_occupancy)
 
-
-    def calculate_reward(self, tl_id):
-        #choose reward calculation
-        return self.calculate_reward_3(tl_id)
+    # def calculate_reward(self, tl_id):
+    #     #choose reward calculation
+    #     #prev was _3
+    #     return self.calculate_reward_4(tl_id)
 
 
     def calculate_reward_1(self, tl_id):
@@ -280,12 +294,26 @@ class SumoEnv(Env):
         return reward
 
     def calculate_reward_3(self, tl_id): 
-
+        # previously was a huge penalty of -100_000
         total_waiting_time = self.get_total_waiting_time()
         reward = -total_waiting_time / 12 
 
+        if self.get_max_occupancy() > self._occupancy_threshold:
+            remaining_steps = self._max_steps - self.last_step
+            return -1_000  * remaining_steps
+
         return reward
 
+    def calculate_reward_4(self, tl_id):
+        # reward based on cars speed
+        mean_speed = self.get_mean_speed()
+        reward =  mean_speed / 12
+
+        if self.get_max_occupancy() > self._occupancy_threshold:
+            remaining_steps = self._max_steps - self.last_step
+            return -100  * remaining_steps
+
+        return reward
 
     def compute_observation_1(self):
         for tl_id in self.trafficlight_ids:  
@@ -296,20 +324,18 @@ class SumoEnv(Env):
         
         return self.last_observation
 
-    def compute_observation_2(self):
-        for tl_id in self.trafficlight_ids: 
-            #traffic light phase one hhot
-            n_phase = len(self.trafficlight_phases[tl_id])
-            last_phase = traci.trafficlight.getPhase(tl_id)
-            tl_phase_one_hot = np.zeros(n_phase)
-            tl_phase_one_hot[last_phase] = 1
-            #lane n cars stops normalized 0-1
-            stopped_cars_norm= np.array(self.get_halting_vehicles_norm(tl_id))
+    def compute_observation_2(self, tl_id):
+        #traffic light phase one hhot
+        n_phase = len(self.trafficlight_phases[tl_id])
+        last_phase = traci.trafficlight.getPhase(tl_id)
+        tl_phase_one_hot = np.zeros(n_phase)
+        tl_phase_one_hot[last_phase] = 1
+        #lane n cars stops normalized 0-1
+        stopped_cars_norm= np.array(self.get_halting_vehicles_norm(tl_id))
 
-            obs = np.append(tl_phase_one_hot, stopped_cars_norm)
-            self.last_observation[tl_id] = obs.astype(np.float32)
+        obs = np.append(tl_phase_one_hot, stopped_cars_norm)
+        return obs.astype(np.float32)
 
-        return self.last_observation
 
     def compute_observation_3(self, tl_id):
         n_phase = len(self.trafficlight_phases[tl_id])
@@ -369,6 +395,15 @@ class SumoEnv(Env):
             waiting_time = traci.vehicle.getWaitingTime(car)
             waiting_times.append((waiting_time))
         return waiting_times
+
+    def get_mean_speed(self):
+        tl_id =self.trafficlight_ids[0]
+        total_mean = 0
+        for lane_id in self.trafficlight_lanes[tl_id]:
+            mean_lane = traci.lane.getLastStepMeanSpeed(lane_id)
+            total_mean += mean_lane
+            # print(f'Mean speed lane {lane_id}: {mean_lane}')
+        return total_mean 
 
 
 

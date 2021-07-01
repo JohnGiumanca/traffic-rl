@@ -138,11 +138,21 @@
         <lane id="wptocp_2" index="2" speed="13.89" length="186.40" shape="-200.00,-1.60 -13.60,-1.60"/>
     </edge>
 
-    <tlLogic id="cp" type="static" programID="0" offset="0">
+    <!-- <tlLogic id="cp" type="static" programID="0" offset="0">
         <phase duration="42" state="GGGGgrrrrrGGGGgrrrrr"/>
         <phase duration="3"  state="yyyyyrrrrryyyyyrrrrr"/>
         <phase duration="42" state="rrrrrGGGGgrrrrrGGGGg"/>
         <phase duration="3"  state="rrrrryyyyyrrrrryyyyy"/>
+    </tlLogic> -->
+    <tlLogic id="cp" type="static" programID="0" offset="0">
+        <phase duration="42" state="GGGGrgrrrrGGGGrgrrrr"/>
+        <phase duration="3"  state="gyyyrgrrrrgyyyrgrrrr"/>
+        <phase duration="10" state="grrrGgrrrrgrrrGgrrrr"/>
+        <phase duration="3"  state="grrrygrrrrgrrrygrrrr"/>
+        <phase duration="42" state="grrrrGGGGrgrrrrGGGGr"/>
+        <phase duration="3"  state="grrrrgyyyrgrrrrgyyyr"/>
+        <phase duration="10" state="grrrrgrrrGgrrrrgrrrG"/>
+        <phase duration="3"  state="grrrrgrrrYgrrrrgrrry"/>
     </tlLogic>
 
     <junction id="cp" type="traffic_light" x="0.00" y="0.00" incLanes="nptocp_0 nptocp_1 nptocp_2 eptocp_0 eptocp_1 eptocp_2 sptocp_0 sptocp_1 sptocp_2 wptocp_0 wptocp_1 wptocp_2" intLanes=":cp_0_0 :cp_1_0 :cp_1_1 :cp_1_2 :cp_20_0 :cp_5_0 :cp_6_0 :cp_6_1 :cp_6_2 :cp_21_0 :cp_10_0 :cp_11_0 :cp_11_1 :cp_11_2 :cp_22_0 :cp_15_0 :cp_16_0 :cp_16_1 :cp_16_2 :cp_23_0" shape="-9.60,13.60 9.60,13.60 10.04,11.38 10.60,10.60 11.38,10.04 12.38,9.71 13.60,9.60 13.60,-9.60 11.38,-10.04 10.60,-10.60 10.04,-11.38 9.71,-12.38 9.60,-13.60 -9.60,-13.60 -10.04,-11.38 -10.60,-10.60 -11.38,-10.04 -12.38,-9.71 -13.60,-9.60 -13.60,9.60 -11.38,10.04 -10.60,10.60 -10.04,11.38 -9.71,12.38">
